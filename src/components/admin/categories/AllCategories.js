@@ -136,9 +136,10 @@ const CategoryTable = ({ category, deleteCat, editCat }) => {
             : category.cDescription}
         </td>
         <td className="p-2 text-center">
+          
           <img
             className="w-12 h-12 object-cover object-center"
-            src={`${apiURL}/uploads/categories/${category.cImage}`}
+            src={category.cUrl}
             alt=""
           />
         </td>

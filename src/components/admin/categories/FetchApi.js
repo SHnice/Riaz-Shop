@@ -5,8 +5,11 @@ const BearerToken = () =>
   localStorage.getItem("jwt")
     ? JSON.parse(localStorage.getItem("jwt")).token
     : false;
+
+console.log(BearerToken)
 const Headers = () => {
   return {
+    
     headers: {
       token: `Bearer ${BearerToken()}`,
     },
@@ -14,6 +17,7 @@ const Headers = () => {
 };
 
 export const getAllCategory = async () => {
+  console.log(BearerToken)
   try {
     let res = await axios.get(`${apiURL}/api/category/all-category`, Headers());
     return res.data;

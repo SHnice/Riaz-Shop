@@ -3,6 +3,7 @@ import OrderSuccessMessage from "./OrderSuccessMessage";
 import { HomeContext } from "./";
 import { sliderImages } from "../../admin/dashboardAdmin/Action";
 import { prevSlide, nextSlide } from "./Mixins";
+import './Slide.css'
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -17,10 +18,10 @@ const Slider = (props) => {
 
   return (
     <Fragment>
-      <div className="relative mt-16 bg-gray-100 border-2">
+      <div className="relative bg-gray-100 border-2">
         {data.sliderImages.length > 0 ? (
-          <img
-            className="w-full"
+          <img 
+            className="slide"
             src={`${apiURL}/uploads/customize/${data.sliderImages[slide].slideImage}`}
             alt="sliderImage"
           />
@@ -34,7 +35,7 @@ const Slider = (props) => {
               onClick={(e) =>
                 prevSlide(data.sliderImages.length, slide, setSlide)
               }
-              className={`z-10 absolute top-0 left-0 mt-64 flex justify-end items-center box-border flex justify-center w-12 h-12 text-gray-700  cursor-pointer hover:text-yellow-700`}
+              className={`z-10 absolute arrow left-0 flex justify-end items-center box-border flex justify-center w-8 h-8 md:h-12 md:w-12 text-gray-700  cursor-pointer hover:text-yellow-700`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -51,7 +52,7 @@ const Slider = (props) => {
               onClick={(e) =>
                 nextSlide(data.sliderImages.length, slide, setSlide)
               }
-              className={`z-10 absolute top-0 right-0 mt-64 flex justify-start items-center box-border flex justify-center w-12 h-12 text-gray-700 cursor-pointer hover:text-yellow-700`}
+              className={`z-10 absolute arrow right-0 flex justify-start items-center box-border flex justify-center w-8 h-8 md:h-12 md:w-12 text-gray-700 cursor-pointer hover:text-yellow-700`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -64,15 +65,7 @@ const Slider = (props) => {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <a
-                href="#shop"
-                style={{ background: "#303031" }}
-                className="cursor-pointer box-border text-2xl text-white px-4 py-2 rounded"
-              >
-                Shop Now
-              </a>
-            </div>
+          
           </>
         ) : null}
       </div>

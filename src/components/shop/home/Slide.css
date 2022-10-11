@@ -1,0 +1,15 @@
+.slide{
+    width:100%;
+    height: 35rem;
+
+
+}
+@media (max-width: 480px){
+    .slide{
+        width:100%;
+        height:12rem;
+    }
+}
+.arrow{
+    top:40%
+}
